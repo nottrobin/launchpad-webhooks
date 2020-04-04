@@ -17,3 +17,7 @@ response = call_api(
         ),
     },
 )
+
+build = call_api(response.headers["Location"])
+
+print(json.dumps(build.json(), indent=4, sort_keys=True))
