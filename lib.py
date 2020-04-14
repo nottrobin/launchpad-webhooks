@@ -2,7 +2,7 @@ import requests
 import os
 
 
-def call_api(url, method="get", data=None):
+def call_api(url, method="get", json=None, data=None):
     return requests.request(
         method=method,
         url=url,
@@ -16,5 +16,6 @@ def call_api(url, method="get", data=None):
                 f'oauth_signature="{os.environ["IMAGEBUILD_OAUTH_SIGNATURE"]}"'
             ),
         },
+        json=json,
         data=data,
     )

@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import json
 from lib import call_api
 
@@ -17,6 +19,10 @@ response = call_api(
         ),
     },
 )
+
+import ipdb
+
+ipdb.set_trace()
 
 build = call_api(response.headers["Location"])
 
