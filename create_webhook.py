@@ -5,7 +5,10 @@ from lib import call_api
 
 
 response = call_api(
-    "https://api.launchpad.net/devel/~imagebuild/+livefs/ubuntu/bionic/ubuntu-cpc",
+    (
+        "https://api.launchpad.net/devel/~imagebuild/"
+        "+livefs/ubuntu/bionic/ubuntu-cpc"
+    ),
     method="post",
     data={
         "ws.op": "newWebhook",

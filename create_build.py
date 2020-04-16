@@ -5,7 +5,10 @@ from lib import call_api
 
 
 response = call_api(
-    "https://api.launchpad.net/devel/~imagebuild/+livefs/ubuntu/bionic/ubuntu-core",
+    (
+        "https://api.launchpad.net/devel/~imagebuild/"
+        "+livefs/ubuntu/bionic/ubuntu-core"
+    ),
     method="post",
     data={
         "ws.op": "requestBuild",
@@ -19,10 +22,6 @@ response = call_api(
         ),
     },
 )
-
-import ipdb
-
-ipdb.set_trace()
 
 build = call_api(response.headers["Location"])
 

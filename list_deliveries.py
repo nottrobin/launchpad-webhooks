@@ -1,11 +1,17 @@
 #! /usr/bin/env python3
 
 import json
+import sys
 from lib import call_api
 
 
-deliveries_response = call_api(
-    "https://api.launchpad.net/devel/~imagebuild/+livefs/ubuntu/bionic/ubuntu-core/+webhook/12811/deliveries"
+system_type = sys.argv[1]
+webhook_id = sys.argv[2]
+url = (
+    "https://api.launchpad.net/devel/~imagebuild/+livefs/"
+    f"ubuntu/{system_type}/+webhook/{webhook_id}/deliveries"
 )
+
+deliveries_response = call_api(url)
 
 print(json.dumps(deliveries_response.json(), indent=4, sort_keys=True))
